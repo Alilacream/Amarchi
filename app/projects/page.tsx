@@ -4,13 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 import { projects } from "@/lib/data";
 
-const categories = ["All", "Residential", "Commercial", "Public", "Urban Planning", "Interior"];
+const categories = ["Tous", "Résidentiel", "Commercial", "Public", "Urbanisme", "Intérieur"];
 
 export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Tous");
 
   const filtered =
-    activeCategory === "All"
+    activeCategory === "Tous"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
@@ -19,15 +19,15 @@ export default function ProjectsPage() {
       <section className="relative py-24 lg:py-32 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Our Portfolio
+            Notre Portfolio
           </p>
           <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-dark leading-tight max-w-3xl">
-            Projects that{" "}
-            <span className="text-accent">define</span> spaces
+            Des projets qui{" "}
+            <span className="text-accent">définissent</span> les espaces
           </h1>
           <p className="mt-6 text-muted text-lg leading-relaxed max-w-2xl">
-            Each project in our portfolio represents a unique challenge met with creative 
-            solutions, technical precision, and an unwavering commitment to design excellence.
+            Chaque projet de notre portfolio représente un défi unique rencontré avec des solutions créatives, 
+            une précision technique et un engagement inébranlable envers l'excellence du design.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function ProjectsPage() {
           {filtered.length === 0 && (
             <div className="text-center py-20">
               <p className="text-muted text-lg">
-                No projects found in this category.
+                Aucun projet trouvé dans cette catégorie.
               </p>
             </div>
           )}

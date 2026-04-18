@@ -18,7 +18,10 @@ export default function Footer() {
               />
             </div>
             <p className="text-primary/70 max-w-md leading-relaxed">
-              We design spaces that inspire. From concept to completion, AM Archi Vision delivers architectural excellence that transforms how people live, work, and connect.
+              Nous concevons des espaces qui inspirent. Du concept à la
+              réalisation, AM Archi Vision offre une excellence architecturale
+              qui transforme la façon dont les gens vivent, travaillent et se
+              connectent.
             </p>
           </div>
 
@@ -28,10 +31,10 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                { href: "/", label: "Home" },
-                { href: "/about", label: "About" },
+                { href: "/", label: "Accueil" },
+                { href: "/about", label: "À Propos" },
                 { href: "/services", label: "Services" },
-                { href: "/projects", label: "Projects" },
+                { href: "/projects", label: "Projets" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>
@@ -52,15 +55,25 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-primary/70">
               <li>Amarchi01@gmail.com</li>
-              <li>+212 606882624</li>
-              <li>Algiers, Algeria</li>
+              <li>+212 660364728</li>
+              <li>
+                <a
+                  href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  Maroc, Oujda
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-primary/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-primary/50 text-sm">
-            &copy; {new Date().getFullYear()} AM Archi Vision. All rights reserved.
+            &copy; {new Date().getFullYear()} AM Archi Vision. All rights
+            reserved.
           </p>
           <div className="flex gap-4">
             <a
@@ -73,7 +86,7 @@ export default function Footer() {
               <FaFacebookF />
             </a>
             <a
-              href="https://wa.me/212606882624"
+              href="https://wa.me/212660364728?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20vos%20services.%20J%27aimerais%20en%20savoir%20plus."
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-primary/10 border border-primary/20 rounded-sm flex items-center justify-center text-primary/70 hover:text-accent hover:border-accent/30 transition-all duration-200"

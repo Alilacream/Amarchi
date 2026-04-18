@@ -30,15 +30,15 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            What We Do
+            Ce Que Nous Faisons
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-            Comprehensive design{" "}
-            <span className="text-accent">services</span>
+            Des services de design{" "}
+            <span className="text-accent">complets</span>
           </h2>
           <p className="mt-6 text-muted leading-relaxed">
-            From initial concept to final execution, we offer a full spectrum of architectural 
-            services designed to bring your vision to life with precision and artistry.
+            Du concept initial à l'exécution finale, nous offrons un spectre complet de services architecturaux 
+            conçus pour donner vie à votre vision avec précision et artistry.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export default function ServicesSection() {
             href="/services"
             className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-200"
           >
-            Explore all services
+            Explorer tous les services
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m0-4H3" />
             </svg>

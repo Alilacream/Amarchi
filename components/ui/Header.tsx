@@ -6,11 +6,10 @@ import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "Accueil" },
+  { href: "/about", label: "À Propos" },
   { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
+  { href: "/projects", label: "Projets" },
 ];
 
 export default function Header() {
@@ -41,7 +40,7 @@ export default function Header() {
               href="/contact"
               className="ml-4 inline-flex items-center px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-sm hover:bg-accent/90 transition-colors duration-200"
             >
-              Get a Quote
+              Contacter Nous
             </Link>
           </nav>
 
@@ -97,7 +96,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="inline-flex items-center justify-center px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-sm hover:bg-accent/90 transition-colors duration-200 mt-2"
               >
-                Get a Quote
+                Obtenir un Devis
               </Link>
             </div>
           </nav>

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { FaFacebookF, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -20,24 +22,25 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your message. We will get back to you shortly.");
+    alert("Merci pour votre message. Nous vous répondrons dans les plus brefs délais.");
     setFormData({ name: "", email: "", phone: "", service: "", message: "" });
   };
 
   return (
+    <>
       <main className="pt-24">
       <section className="relative py-24 lg:py-32 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Contact Us
+            Contactez-Nous
           </p>
           <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-dark leading-tight max-w-3xl">
-            Let us start a{" "}
+            Commençons une{" "}
             <span className="text-accent">conversation</span>
           </h1>
           <p className="mt-6 text-muted text-lg leading-relaxed max-w-2xl">
-            Whether you have a project in mind or simply want to explore possibilities, 
-            we would love to hear from you. Reach out and let us create something remarkable together.
+            Que vous ayez un projet en tête ou que vous souhaitiez simplement explorer les possibilités, 
+            nous serions ravis de vous entendre. Contactez-nous et créons quelque chose de remarquable ensemble.
           </p>
         </div>
       </section>
@@ -46,12 +49,12 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
             <div className="lg:col-span-3">
-              <h2 className="text-2xl font-bold text-dark mb-8">Send us a message</h2>
+              <h2 className="text-2xl font-bold text-dark mb-8">Envoyez-nous un message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-dark mb-2">
-                      Full Name
+                      Nom Complet
                     </label>
                     <input
                       type="text"
@@ -61,12 +64,12 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                      placeholder="Your name"
+                      placeholder="Votre nom"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-dark mb-2">
-                      Email Address
+                      Adresse Email
                     </label>
                     <input
                       type="email"
@@ -76,7 +79,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                      placeholder="your@email.com"
+                      placeholder="votre@email.com"
                     />
                   </div>
                 </div>
@@ -84,7 +87,7 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-dark mb-2">
-                      Phone Number
+                      Numéro de Téléphone
                     </label>
                     <input
                       type="tel"
@@ -98,7 +101,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-dark mb-2">
-                      Service Interested In
+                      Service Souhaité
                     </label>
                     <select
                       id="service"
@@ -107,18 +110,18 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                     >
-                      <option value="">Select a service</option>
-                      <option value="architecture">Architectural Design</option>
-                      <option value="interior">Interior Design</option>
-                      <option value="urban">Urban Planning</option>
-                      <option value="3d">3D Visualization</option>
+                      <option value="">Sélectionnez un service</option>
+                      <option value="architecture">Design Architectural</option>
+                      <option value="interior">Design d'Intérieur</option>
+                      <option value="urban">Urbanisme</option>
+                      <option value="3d">Visualisation 3D</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-dark mb-2">
-                    Project Details
+                    Détails du Projet
                   </label>
                   <textarea
                     id="message"
@@ -128,7 +131,7 @@ export default function ContactPage() {
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
-                    placeholder="Tell us about your project, timeline, and any specific requirements..."
+                    placeholder="Parlez-nous de votre projet, calendrier et exigences spécifiques..."
                   />
                 </div>
 
@@ -136,23 +139,28 @@ export default function ContactPage() {
                   type="submit"
                   className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
                 >
-                  Send Message
+                  Envoyer le Message
                 </button>
               </form>
             </div>
 
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-dark mb-8">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-dark mb-8">Contactez-Nous</h2>
               <div className="space-y-8">
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Office
+                    Bureau
                   </h3>
-                  <p className="text-muted leading-relaxed">
+                  <a
+                    href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted hover:text-accent transition-colors"
+                  >
                     AM Archi Vision
                     <br />
-                    Algiers, Algeria
-                  </p>
+                    Maroc, Oujda
+                  </a>
                 </div>
 
                 <div>
@@ -169,30 +177,35 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Phone
+                    Téléphone
                   </h3>
                   <a
-                    href="tel:+212606882624"
+                    href="tel:+212660364728"
                     className="text-muted hover:text-accent transition-colors"
                   >
-                    +212 606882624
+                    +212 660364728
                   </a>
                 </div>
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Working Hours
+                    Bureau
                   </h3>
-                  <p className="text-muted leading-relaxed">
-                    Sunday - Thursday: 9:00 AM - 6:00 PM
+                  <a
+                    href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted hover:text-accent transition-colors"
+                  >
+                    AM Archi Vision
                     <br />
-                    Friday - Saturday: Closed
-                  </p>
+                    Maroc, Oujda
+                  </a>
                 </div>
 
                 <div className="pt-8 border-t border-border">
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
-                    Follow Us
+                    Suivez-Nous
                   </h3>
                   <div className="flex gap-4">
                     <a
@@ -205,7 +218,7 @@ export default function ContactPage() {
                       <FaFacebookF />
                     </a>
                     <a
-                      href="https://wa.me/212606882624"
+                      href="https://wa.me/212660364728?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20vos%20services.%20J%27aimerais%20en%20savoir%20plus."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-secondary/50 border border-border rounded-sm flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-all duration-200"
@@ -230,5 +243,28 @@ export default function ContactPage() {
         </div>
       </section>
     </main>
+    <section className="py-16 lg:py-24 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
+            Notre Emplacement
+          </p>
+          <h2 className="text-3xl font-bold text-dark">Trouvez-nous</h2>
+        </div>
+        <div className="relative h-[400px] lg:h-[500px] rounded-sm overflow-hidden border border-border">
+          <Link
+            href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
+          >
+          <Image
+            src="/images/local/local.png"
+            alt="Localisation AM Archi Vision - Oujda, Maroc"
+            fill
+            className="object-cover"
+          />
+          </Link>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }

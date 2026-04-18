@@ -20,7 +20,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your message. We will get back to you shortly.");
+    alert("Merci pour votre message. Nous vous répondrons dans les plus brefs délais.");
     setFormData({ name: "", email: "", phone: "", service: "", message: "" });
   };
 
@@ -29,15 +29,15 @@ export default function ContactPage() {
       <section className="relative py-24 lg:py-32 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Contact Us
+            Contactez-Nous
           </p>
           <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-dark leading-tight max-w-3xl">
-            Let us start a{" "}
+            Commençons une{" "}
             <span className="text-accent">conversation</span>
           </h1>
           <p className="mt-6 text-muted text-lg leading-relaxed max-w-2xl">
-            Whether you have a project in mind or simply want to explore possibilities, 
-            we would love to hear from you. Reach out and let us create something remarkable together.
+            Que vous ayez un projet en tête ou que vous souhaitiez simplement explorer les possibilités, 
+            nous serions ravis de vous entendre. Contactez-nous et créons quelque chose de remarquable ensemble.
           </p>
         </div>
       </section>
@@ -46,12 +46,12 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
             <div className="lg:col-span-3">
-              <h2 className="text-2xl font-bold text-dark mb-8">Send us a message</h2>
+              <h2 className="text-2xl font-bold text-dark mb-8">Envoyez-nous un message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-dark mb-2">
-                      Full Name
+                      Nom Complet
                     </label>
                     <input
                       type="text"
@@ -61,12 +61,12 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                      placeholder="Your name"
+                      placeholder="Votre nom"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-dark mb-2">
-                      Email Address
+                      Adresse Email
                     </label>
                     <input
                       type="email"
@@ -76,7 +76,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                      placeholder="your@email.com"
+                      placeholder="votre@email.com"
                     />
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-dark mb-2">
-                      Phone Number
+                      Numéro de Téléphone
                     </label>
                     <input
                       type="tel"
@@ -98,7 +98,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-dark mb-2">
-                      Service Interested In
+                      Service Souhaité
                     </label>
                     <select
                       id="service"
@@ -107,18 +107,18 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                     >
-                      <option value="">Select a service</option>
-                      <option value="architecture">Architectural Design</option>
-                      <option value="interior">Interior Design</option>
-                      <option value="urban">Urban Planning</option>
-                      <option value="3d">3D Visualization</option>
+                      <option value="">Sélectionnez un service</option>
+                      <option value="architecture">Design Architectural</option>
+                      <option value="interior">Design d'Intérieur</option>
+                      <option value="urban">Urbanisme</option>
+                      <option value="3d">Visualisation 3D</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-dark mb-2">
-                    Project Details
+                    Détails du Projet
                   </label>
                   <textarea
                     id="message"
@@ -128,7 +128,7 @@ export default function ContactPage() {
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
-                    placeholder="Tell us about your project, timeline, and any specific requirements..."
+                    placeholder="Parlez-nous de votre projet, calendrier et exigences spécifiques..."
                   />
                 </div>
 
@@ -136,22 +136,22 @@ export default function ContactPage() {
                   type="submit"
                   className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
                 >
-                  Send Message
+                  Envoyer le Message
                 </button>
               </form>
             </div>
 
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-dark mb-8">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-dark mb-8">Contactez-Nous</h2>
               <div className="space-y-8">
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Office
+                    Bureau
                   </h3>
                   <p className="text-muted leading-relaxed">
                     AM Archi Vision
                     <br />
-                    Algiers, Algeria
+                    Alger, Algérie
                   </p>
                 </div>
 
@@ -169,7 +169,7 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Phone
+                    Téléphone
                   </h3>
                   <a
                     href="tel:+212606882624"
@@ -181,18 +181,18 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Working Hours
+                    Heures d'Ouverture
                   </h3>
                   <p className="text-muted leading-relaxed">
-                    Sunday - Thursday: 9:00 AM - 6:00 PM
+                    Dimanche - Jeudi : 9h00 - 18h00
                     <br />
-                    Friday - Saturday: Closed
+                    Vendredi - Samedi : Fermé
                   </p>
                 </div>
 
                 <div className="pt-8 border-t border-border">
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
-                    Follow Us
+                    Suivez-Nous
                   </h3>
                   <div className="flex gap-4">
                     <a

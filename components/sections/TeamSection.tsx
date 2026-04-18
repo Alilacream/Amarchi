@@ -7,15 +7,15 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Our People
+            Notre Équipe
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-            The minds behind the{" "}
+            Les esprits derrière la{" "}
             <span className="text-accent">vision</span>
           </h2>
           <p className="mt-6 text-muted leading-relaxed">
-            A team of dedicated professionals united by a shared passion for exceptional design 
-            and a commitment to pushing the boundaries of what architecture can achieve.
+            Une équipe de professionnels dévoués unis par une passion commune pour le design exceptionnel 
+            et un engagement à repousser les limites de ce que l'architecture peut accomplir.
           </p>
         </div>
 

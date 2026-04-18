@@ -11,17 +11,17 @@ export default function ProjectsSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-              Our Portfolio
+              Notre Portfolio
             </p>
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-              Featured <span className="text-accent">projects</span>
+              Projets <span className="text-accent">en vedette</span>
             </h2>
           </div>
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-200 shrink-0"
           >
-            View all projects
+            Voir tous les projets
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m0-4H3" />
             </svg>

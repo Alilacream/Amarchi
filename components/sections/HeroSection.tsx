@@ -12,38 +12,38 @@ export default function HeroSection() {
             Architecture &bull; Design &bull; Innovation
           </p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-dark leading-tight">
-            We shape spaces
+            Nous façonnons des espaces
             <br />
-            that shape{" "}
-            <span className="text-accent">lives</span>
+            qui façonnent{" "}
+            <span className="text-accent">les vies</span>
           </h1>
           <p className="mt-8 text-lg lg:text-xl text-muted max-w-2xl leading-relaxed">
-            AM Archi Vision transforms ambitious ideas into architectural realities. 
-            With precision, creativity, and a relentless pursuit of excellence, we design 
-            environments that inspire generations.
+            AM Archi Vision transforme les idées ambitieuses en réalités architecturales. 
+            Avec précision, créativité et une poursuite relentless de l'excellence, nous concevons 
+            des environnements qui inspirent les générations.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/projects"
               className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
             >
-              View Our Work
+              Voir Nos Projets
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center px-8 py-4 border-2 border-dark text-dark font-semibold rounded-sm hover:bg-dark hover:text-primary transition-all duration-200"
             >
-              Start a Project
+              Démarrer un Projet
             </Link>
           </div>
         </div>
 
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl">
           {[
-            { value: "4+", label: "Years" },
-            { value: "10+", label: "Projects" },
-            { value: "4+", label: "Partners" },
-            { value: "6", label: "Team" },
+            { value: "4+", label: "Années" },
+            { value: "10+", label: "Projets" },
+            { value: "4+", label: "Partenaires" },
+            { value: "6", label: "Équipe" },
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-3xl lg:text-4xl font-bold text-accent">{stat.value}</p>

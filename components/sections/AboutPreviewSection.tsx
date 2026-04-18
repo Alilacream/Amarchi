@@ -8,29 +8,29 @@ export default function AboutPreviewSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-              Who We Are
+              Qui Sommes-Nous
             </p>
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-              Architecture rooted in{" "}
-              <span className="text-accent">purpose</span>
+              Une architecture enracinée dans{" "}
+              <span className="text-accent">le propósito</span>
             </h2>
             <p className="mt-6 text-muted leading-relaxed">
-              Founded with a vision to redefine the architectural landscape, AM Archi Vision 
-              brings together a team of passionate designers, engineers, and thinkers. We believe 
-              that great architecture goes beyond aesthetics — it shapes behavior, influences mood, 
-              and creates lasting connections between people and places.
+              Fondée avec la vision de redéfinir le paysage architectural, AM Archi Vision 
+              réunit une équipe de designers, ingénieurs et penseurs passionnés. Nous croyons 
+              que la grande architecture va au-delà de l'esthétique — elle façonne les comportements, influence l'humeur, 
+              et crée des connexions durables entre les personnes et les lieux.
             </p>
             <p className="mt-4 text-muted leading-relaxed">
-              Over the past four years, we have delivered projects that push boundaries while 
-              respecting context, culture, and environment. Every line we draw serves a purpose. 
-              Every space we create tells a story.
+              Au cours des quatre dernières années, nous avons réalisé des projets qui repoussent les limites tout en 
+              respectant le contexte, la culture et l'environnement. Chaque ligne que nous traçons sert un propósito. 
+              Chaque espace que nous créons raconte une histoire.
             </p>
             <div className="mt-8">
               <Link
                 href="/about"
                 className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-200"
               >
-                Learn more about us
+                En savoir plus sur nous
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m0-4H3" />
                 </svg>

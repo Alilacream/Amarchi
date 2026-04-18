@@ -18,7 +18,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-primary/70 max-w-md leading-relaxed">
-              We design spaces that inspire. From concept to completion, AM Archi Vision delivers architectural excellence that transforms how people live, work, and connect.
+              Nous concevons des espaces qui inspirent. Du concept à la réalisation, AM Archi Vision offre une excellence architecturale qui transforme la façon dont les gens vivent, travaillent et se connectent.
             </p>
           </div>
 
@@ -28,10 +28,10 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                { href: "/", label: "Home" },
-                { href: "/about", label: "About" },
+                { href: "/", label: "Accueil" },
+                { href: "/about", label: "À Propos" },
                 { href: "/services", label: "Services" },
-                { href: "/projects", label: "Projects" },
+                { href: "/projects", label: "Projets" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>

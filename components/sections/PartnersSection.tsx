@@ -6,14 +6,14 @@ export default function PartnersSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Trusted Collaborations
+            Collaborations de Confiance
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-            Our <span className="text-accent">partners</span>
+            Nos <span className="text-accent">partenaires</span>
           </h2>
           <p className="mt-6 text-muted leading-relaxed">
-            We work alongside industry-leading firms and specialists to deliver projects 
-            that exceed expectations at every stage.
+            Nous travaillons aux côtés d'entreprises et de spécialistes leaders de l'industrie pour livrer des projets 
+            qui surpassent les attentes à chaque étape.
           </p>
         </div>
 

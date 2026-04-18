@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { services } from "@/lib/data";
+import AmastroyShowcase from "@/components/sections/AmastroyShowcase";
 
 export const metadata = {
   title: "Services | AM Archi Vision",
@@ -157,6 +158,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <AmastroyShowcase />
 
       <section className="py-24 lg:py-32 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { FaFacebookF, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -25,6 +27,7 @@ export default function ContactPage() {
   };
 
   return (
+    <>
       <main className="pt-24">
       <section className="relative py-24 lg:py-32 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -148,11 +151,16 @@ export default function ContactPage() {
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
                     Bureau
                   </h3>
-                  <p className="text-muted leading-relaxed">
+                  <a
+                    href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted hover:text-accent transition-colors"
+                  >
                     AM Archi Vision
                     <br />
-                    Alger, Algérie
-                  </p>
+                    Maroc, Oujda
+                  </a>
                 </div>
 
                 <div>
@@ -172,22 +180,27 @@ export default function ContactPage() {
                     Téléphone
                   </h3>
                   <a
-                    href="tel:+212606882624"
+                    href="tel:+212660364728"
                     className="text-muted hover:text-accent transition-colors"
                   >
-                    +212 606882624
+                    +212 660364728
                   </a>
                 </div>
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Heures d'Ouverture
+                    Bureau
                   </h3>
-                  <p className="text-muted leading-relaxed">
-                    Dimanche - Jeudi : 9h00 - 18h00
+                  <a
+                    href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted hover:text-accent transition-colors"
+                  >
+                    AM Archi Vision
                     <br />
-                    Vendredi - Samedi : Fermé
-                  </p>
+                    Maroc, Oujda
+                  </a>
                 </div>
 
                 <div className="pt-8 border-t border-border">
@@ -205,7 +218,7 @@ export default function ContactPage() {
                       <FaFacebookF />
                     </a>
                     <a
-                      href="https://wa.me/212606882624"
+                      href="https://wa.me/212660364728?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20vos%20services.%20J%27aimerais%20en%20savoir%20plus."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 bg-secondary/50 border border-border rounded-sm flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-all duration-200"
@@ -230,5 +243,28 @@ export default function ContactPage() {
         </div>
       </section>
     </main>
+    <section className="py-16 lg:py-24 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
+            Notre Emplacement
+          </p>
+          <h2 className="text-3xl font-bold text-dark">Trouvez-nous</h2>
+        </div>
+        <div className="relative h-[400px] lg:h-[500px] rounded-sm overflow-hidden border border-border">
+          <Link
+            href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
+          >
+          <Image
+            src="/images/local/local.png"
+            alt="Localisation AM Archi Vision - Oujda, Maroc"
+            fill
+            className="object-cover"
+          />
+          </Link>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }

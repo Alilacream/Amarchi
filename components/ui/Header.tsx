@@ -10,7 +10,6 @@ const navLinks = [
   { href: "/about", label: "À Propos" },
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Projets" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -41,7 +40,7 @@ export default function Header() {
               href="/contact"
               className="ml-4 inline-flex items-center px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-sm hover:bg-accent/90 transition-colors duration-200"
             >
-              Obtenir un Devis
+              Contacter Nous
             </Link>
           </nav>
 

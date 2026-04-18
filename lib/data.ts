@@ -4,19 +4,19 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Amine Amara",
     role: "PDG, AM Archi Vision",
-    image: "/amine_mono.png",
+    image: "/images/about/amine_mono.png",
     bio: "Architecte visionnaire passionné par la transformation des espaces en expériences vivantes. Dirige AM Archi Vision avec un focus sur l'innovation, la précision et le design durable.",
   },
   {
     name: "Abdoulhak Amara",
     role: "PDG, Amastroy (Associé)",
-    image: "/ceo.png",
+    image: "/images/about/ceo.png",
     bio: "Penseur stratégique faisant le lien entre architecture et construction. En tant que PDG d'Amastroy, il garantit que chaque projet est livré avec intégrité structurelle et excellence opérationnelle.",
   },
   {
     name: "Salah din Amara",
     role: "Associé",
-    image: "/salah_mono.png",
+    image: "/images/about/salah_mono.png",
     bio: "Force créative derrière nos concepts les plus ambitieux. Salah apporte une perspective unique à chaque projet, alliant esthétique et fonctionnalité.",
   },
 ];
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description: "Une villa contemporaine perchée sur la côte, conçue pour capturer des vues panoramiques tout en maintenant une intimité complète et un mode de vie durable.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
     year: "2024",
-    location: "Alger, Algérie",
+    location: "Maroc, Oujda",
   },
   {
     title: "Tour Nexus",
@@ -91,15 +91,13 @@ export const projects: Project[] = [
     description: "Un intérieur de lounge haut de gamme combinant matériaux chaleureux, éclairage dramatique et mobilier sur mesure pour une atmosphère inoubliable.",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop",
     year: "2024",
-    location: "Alger, Algérie",
+    location: "Maroc Oujda",
   },
 ];
 
 export const partners: Partner[] = [
-  { name: "Amastroy", description: "Construction & Ingénierie" },
-  { name: "BuildTech Solutions", description: "Ingénierie Structurelle" },
-  { name: "EcoDesign Studio", description: "Consultation en Design Durable" },
-  { name: "UrbanEdge Partners", description: "Développement Urbain" },
+  { name: "Amastroy", description: "Construction & Ingénierie", image: "/images/partners/amastroy.png" },
+  { name: "Hassoune", description: "Atelier d'Architecture", image: "/images/partners/hassoune.png" },
 ];
 
 export const stats: Stat[] = [

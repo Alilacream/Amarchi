@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { teamMembers, stats } from "@/lib/data";
+import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
 export const metadata = {
   title: "À Propos | AM Archi Vision",
@@ -94,20 +95,23 @@ export default function AboutPage() {
             {teamMembers.map((member) => (
               <div
                 key={member.name}
-                className="group bg-secondary/30 rounded-sm border border-border overflow-hidden hover:shadow-lg hover:shadow-accent/5 transition-all duration-300"
+                className="group relative h-[420px] rounded-sm overflow-hidden cursor-pointer"
               >
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-dark">{member.name}</h3>
-                  <p className="mt-1 text-accent text-sm font-medium">{member.role}</p>
-                  <p className="mt-3 text-muted text-sm leading-relaxed">{member.bio}</p>
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="w-12 h-[2px] bg-accent mb-6" />
+                  <h3 className="text-2xl font-semibold text-primary">{member.name}</h3>
+                  <p className="mt-2 text-accent text-sm font-medium tracking-wide uppercase">{member.role}</p>
+                  <p className="mt-4 text-primary/80 text-sm leading-relaxed max-w-xs text-center">{member.bio}</p>
+                  <div className="w-12 h-[2px] bg-accent mt-6" />
                 </div>
               </div>
             ))}

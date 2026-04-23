@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { services } from "@/lib/data";
+import { useLang } from "@/components/ui/LanguageProvider";
 
 const iconMap: Record<string, React.ReactNode> = {
   architecture: (
@@ -24,35 +26,46 @@ const iconMap: Record<string, React.ReactNode> = {
   ),
 };
 
+const serviceKeys = ["architecture", "interior", "urban", "3d"] as const;
+
 export default function ServicesSection() {
+  const { t } = useLang();
+  const sl = t.services.serviceList;
+
+  const services = serviceKeys.map((key) => ({
+    key,
+    title: sl[key].title,
+    desc: sl[key].desc,
+    icon: key,
+  }));
+
   return (
     <section className="py-24 lg:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Ce Que Nous Faisons
+            {t.servicesSection.tag}
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-            Des services de design{" "}
-            <span className="text-accent">complets</span>
+            {t.servicesSection.h2a}{" "}
+            <span className="text-accent">{t.servicesSection.h2accent}</span>
           </h2>
           <p className="mt-6 text-muted leading-relaxed">
-            Du concept initial à l'exécution finale, nous offrons un spectre complet de services architecturaux 
-            conçus pour donner vie à votre vision avec précision et artistry.
+            {t.servicesSection.description}
           </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service) => (
             <div
-              key={service.title}
+              key={service.key}
               className="group bg-primary p-8 lg:p-10 rounded-sm border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5"
             >
               <div className="w-14 h-14 bg-accent/10 rounded-sm flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
                 {iconMap[service.icon]}
               </div>
               <h3 className="mt-6 text-xl font-semibold text-dark">{service.title}</h3>
-              <p className="mt-3 text-muted leading-relaxed">{service.description}</p>
+              <p className="mt-3 text-muted leading-relaxed">{service.desc}</p>
             </div>
           ))}
         </div>
@@ -62,7 +75,7 @@ export default function ServicesSection() {
             href="/services"
             className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-200"
           >
-            Explorer tous les services
+            {t.servicesSection.link}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m0-4H3" />
             </svg>

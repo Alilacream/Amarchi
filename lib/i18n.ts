@@ -186,6 +186,13 @@ const fr = {
     intro:
       "Chaque projet de notre portfolio représente un défi unique rencontré avec des solutions créatives, une précision technique et un engagement inébranlable envers l'excellence du design.",
     categories: ["Tous", "Résidentiel", "Commercial", "Public", "Urbanisme", "Intérieur"],
+    categoryMap: {
+      residential: "Résidentiel",
+      commercial: "Commercial",
+      public: "Public",
+      urban: "Urbanisme",
+      interior: "Intérieur",
+    },
     empty: "Aucun projet trouvé dans cette catégorie.",
   },
   contact: {
@@ -226,6 +233,10 @@ const fr = {
   },
   stats: {
     labels: ["Années d'Expérience", "Projets Réalisés", "Partenaires Stratégiques", "Membres d'Équipe"],
+  },
+  partners: {
+    amastroy: "Construction & Ingénierie",
+    hassoune: "Atelier d'Architecture",
   },
   amastroy: {
     captions: ["Construction Résidentielle", "Projet Commercial", "Infrastructure & Fondations"],
@@ -414,6 +425,13 @@ const en = {
     intro:
       "Each project in our portfolio represents a unique challenge met with creative solutions, technical precision and an unwavering commitment to design excellence.",
     categories: ["All", "Residential", "Commercial", "Public", "Urban Planning", "Interior"],
+    categoryMap: {
+      residential: "Residential",
+      commercial: "Commercial",
+      public: "Public",
+      urban: "Urban Planning",
+      interior: "Interior",
+    },
     empty: "No projects found in this category.",
   },
   contact: {
@@ -457,6 +475,10 @@ const en = {
   },
   stats: {
     labels: ["Years of Experience", "Projects Completed", "Strategic Partners", "Team Members"],
+  },
+  partners: {
+    amastroy: "Construction & Engineering",
+    hassoune: "Architecture Studio",
   },
   amastroy: {
     captions: ["Residential Construction", "Commercial Project", "Infrastructure & Foundations"],
@@ -649,6 +671,13 @@ const ar = {
     intro:
       "كل مشروع في محفظتنا يمثل تحدياً فريداً واجهناه بحلول إبداعية ودقة تقنية والتزام ثابت بتميز التصميم.",
     categories: ["الكل", "سكني", "تجاري", "عام", "تخطيط عمراني", "داخلي"],
+    categoryMap: {
+      residential: "سكني",
+      commercial: "تجاري",
+      public: "عام",
+      urban: "تخطيط عمراني",
+      interior: "داخلي",
+    },
     empty: "لا توجد مشاريع في هذه الفئة.",
   },
   contact: {
@@ -692,6 +721,10 @@ const ar = {
   },
   stats: {
     labels: ["سنوات من الخبرة", "مشروع منجز", "شركاء استراتيجيون", "أعضاء الفريق"],
+  },
+  partners: {
+    amastroy: "البناء والهندسة",
+    hassoune: "ورشة العمارة",
   },
   amastroy: {
     captions: ["بناء سكني", "مشروع تجاري", "البنية التحتية والأساسات"],

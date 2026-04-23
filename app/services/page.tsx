@@ -1,11 +1,8 @@
-import Link from "next/link";
-import { services } from "@/lib/data";
-import AmastroyShowcase from "@/components/sections/AmastroyShowcase";
+"use client";
 
-export const metadata = {
-  title: "Services | AM Archi Vision",
-  description: "Découvrez nos services architecturaux complets incluant design, intérieur, urbanisme et visualisation 3D.",
-};
+import Link from "next/link";
+import AmastroyShowcase from "@/components/sections/AmastroyShowcase";
+import { useLang } from "@/components/ui/LanguageProvider";
 
 const iconMap: Record<string, React.ReactNode> = {
   architecture: (
@@ -30,44 +27,33 @@ const iconMap: Record<string, React.ReactNode> = {
   ),
 };
 
-const processSteps = [
-  {
-    step: "01",
-    title: "Découverte",
-    description: "Nous commençons par comprendre votre vision, vos besoins, votre budget et votre calendrier. Chaque grand projet commence par une conversation approfondie.",
-  },
-  {
-    step: "02",
-    title: "Design Conceptuel",
-    description: "Notre équipe traduit vos idées en esquisses et concepts initiaux, explorant plusieurs directions design pour trouver le fit parfait.",
-  },
-  {
-    step: "03",
-    title: "Développement",
-    description: "Le concept choisi est affiné en plans détaillés, visualisations 3D et spécifications techniques prêtes pour approbation.",
-  },
-  {
-    step: "04",
-    title: "Exécution",
-    description: "Nous supervisons le processus de construction, garantissant que chaque détail correspond à l'intention design et aux standards de qualité que nous établissons.",
-  },
-];
+const serviceKeys = ["architecture", "interior", "urban", "3d"] as const;
 
 export default function ServicesPage() {
+  const { t } = useLang();
+  const sl = t.services.serviceList;
+
+  const services = serviceKeys.map((key) => ({
+    key,
+    title: sl[key].title,
+    desc: sl[key].desc,
+    items: sl[key].items,
+    icon: key,
+  }));
+
   return (
     <main className="pt-24">
       <section className="relative py-24 lg:py-32 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Nos Services
+            {t.services.tag}
           </p>
           <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-dark leading-tight max-w-3xl">
-            Des solutions design qui{" "}
-            <span className="text-accent">inspirent</span>
+            {t.services.h1a}{" "}
+            <span className="text-accent">{t.services.h1accent}</span>
           </h1>
           <p className="mt-6 text-muted text-lg leading-relaxed max-w-2xl">
-            Nous offrons une gamme complète de services architecturaux et de design, chacun livré 
-            avec le même engagement envers l'excellence, l'innovation et l'attention aux détails.
+            {t.services.intro}
           </p>
         </div>
       </section>
@@ -77,7 +63,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div
-                key={service.title}
+                key={service.key}
                 className={`group p-10 rounded-sm border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5 ${
                   index % 2 === 0 ? "bg-primary" : "bg-secondary/30"
                 }`}
@@ -86,72 +72,14 @@ export default function ServicesPage() {
                   {iconMap[service.icon]}
                 </div>
                 <h3 className="mt-6 text-2xl font-semibold text-dark">{service.title}</h3>
-                <p className="mt-4 text-muted leading-relaxed">{service.description}</p>
+                <p className="mt-4 text-muted leading-relaxed">{service.desc}</p>
                 <ul className="mt-6 space-y-2">
-                  {service.title === "Design Architectural" && (
-                    <>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Bâtiments résidentiels et commerciaux
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Design durable et passif
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Rénovation et réutilisation adaptative
-                      </li>
-                    </>
-                  )}
-                  {service.title === "Design d'Intérieur" && (
-                    <>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Planification et optimisation de l'espace
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Sélection de matériaux et mobilier
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Design d'éclairage et de couleurs
-                      </li>
-                    </>
-                  )}
-                  {service.title === "Urbanisme" && (
-                    <>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Planification maître et zonage
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Design d'espaces publics
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Intégration d'infrastructure
-                      </li>
-                    </>
-                  )}
-                  {service.title === "Visualisation 3D" && (
-                    <>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Rendus photoréalistes
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Visites virtuelles
-                      </li>
-                      <li className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        Présentations animées
-                      </li>
-                    </>
-                  )}
+                  {service.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-muted">
+                      <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             ))}
@@ -165,17 +93,17 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-              Comment Nous Travaillons
+              {t.services.processTag}
             </p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-dark">Notre Processus</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-dark">{t.services.processTitle}</h2>
           </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step) => (
+            {t.services.process.map((step) => (
               <div key={step.step} className="relative">
                 <span className="text-6xl font-bold text-accent/20">{step.step}</span>
                 <h3 className="mt-2 text-xl font-semibold text-dark">{step.title}</h3>
-                <p className="mt-3 text-muted text-sm leading-relaxed">{step.description}</p>
+                <p className="mt-3 text-muted text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -186,19 +114,18 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
-              Construisons quelque chose{" "}
-              <span className="text-accent">d'extraordinaire</span>
+              {t.services.ctaH2a}{" "}
+              <span className="text-accent">{t.services.ctaH2accent}</span>
             </h2>
             <p className="mt-4 text-primary/70 leading-relaxed">
-              Que vous ayez une vision claire ou juste le germe d'une idée, nous sommes là pour 
-              vous aider à la concrétiser avec précision et créativité.
+              {t.services.ctaDesc}
             </p>
             <div className="mt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-sm hover:bg-accent/90 transition-all duration-200"
+                className="inline-flex items-center px-8 py-4 bg-primary text-dark font-semibold rounded-sm hover:bg-primary/90 transition-all duration-200"
               >
-                Démarrer Votre Projet
+                {t.services.ctaBtn}
               </Link>
             </div>
           </div>

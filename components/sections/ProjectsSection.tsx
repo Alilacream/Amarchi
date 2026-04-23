@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/lib/data";
+import { useLang } from "@/components/ui/LanguageProvider";
 
 export default function ProjectsSection() {
+  const { t } = useLang();
   const featured = projects.slice(0, 4);
 
   return (
@@ -11,17 +15,18 @@ export default function ProjectsSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-              Notre Portfolio
+              {t.projectsSection.tag}
             </p>
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-              Projets <span className="text-accent">en vedette</span>
+              {t.projectsSection.h2a}{" "}
+              <span className="text-accent">{t.projectsSection.h2accent}</span>
             </h2>
           </div>
           <Link
             href="/projects"
             className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-200 shrink-0"
           >
-            Voir tous les projets
+            {t.projectsSection.link}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m0-4H3" />
             </svg>
@@ -46,7 +51,7 @@ export default function ProjectsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
                   <span className="inline-block px-3 py-1 bg-accent/90 text-white text-xs font-semibold tracking-wider uppercase rounded-sm mb-3">
-                    {project.category}
+                    {t.projects.categoryMap[project.category as keyof typeof t.projects.categoryMap]}
                   </span>
                   <h3 className="text-xl lg:text-2xl font-semibold text-primary">
                     {project.title}

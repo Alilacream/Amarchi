@@ -1,26 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import { teamMembers } from "@/lib/data";
+import { useLang } from "@/components/ui/LanguageProvider";
 
 export default function TeamSection() {
+  const { t } = useLang();
+
   return (
     <section className="py-24 lg:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Notre Équipe
+            {t.teamSection.tag}
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-dark leading-tight">
-            Les esprits derrière la{" "}
-            <span className="text-accent">vision</span>
+            {t.teamSection.h2a}{" "}
+            <span className="text-accent">{t.teamSection.h2accent}</span>
           </h2>
           <p className="mt-6 text-muted leading-relaxed">
-            Une équipe de professionnels dévoués unis par une passion commune pour le design exceptionnel 
-            et un engagement à repousser les limites de ce que l'architecture peut accomplir.
+            {t.teamSection.description}
           </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {teamMembers.map((member) => (
+          {teamMembers.map((member, i) => (
             <div
               key={member.name}
               className="group relative h-[420px] rounded-sm overflow-hidden cursor-pointer"
@@ -38,7 +42,7 @@ export default function TeamSection() {
                 <div className="w-12 h-[2px] bg-accent mb-6" />
                 <h3 className="text-2xl font-semibold text-primary">{member.name}</h3>
                 <p className="mt-2 text-accent text-sm font-medium tracking-wide uppercase">{member.role}</p>
-                <p className="mt-4 text-primary/80 text-sm leading-relaxed max-w-xs text-center">{member.bio}</p>
+                <p className="mt-4 text-primary/80 text-sm leading-relaxed max-w-xs text-center">{t.team.bios[i]}</p>
                 <div className="w-12 h-[2px] bg-accent mt-6" />
               </div>
             </div>

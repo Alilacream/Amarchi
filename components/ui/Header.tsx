@@ -4,17 +4,20 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
-
-const navLinks = [
-  { href: "/", label: "Accueil" },
-  { href: "/about", label: "À Propos" },
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projets" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLang } from "./LanguageProvider";
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useLang();
+
+  const navLinks = [
+    { href: "/", label: t.nav.home },
+    { href: "/about", label: t.nav.about },
+    { href: "/services", label: t.nav.services },
+    { href: "/projects", label: t.nav.projects },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -22,7 +25,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           <Logo />
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -36,11 +39,12 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
             <Link
               href="/contact"
-              className="ml-4 inline-flex items-center px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-sm hover:bg-accent/90 transition-colors duration-200"
+              className="ml-2 inline-flex items-center px-6 py-2.5 bg-dark text-white text-sm font-semibold rounded-sm hover:bg-dark/90 transition-colors duration-200"
             >
-              Contacter Nous
+              {t.nav.cta}
             </Link>
           </nav>
 
@@ -91,12 +95,15 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+              <div className="flex items-center gap-2 py-2">
+                <LanguageSwitcher />
+              </div>
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center justify-center px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-sm hover:bg-accent/90 transition-colors duration-200 mt-2"
+                className="inline-flex items-center justify-center px-6 py-2.5 bg-dark text-white text-sm font-semibold rounded-sm hover:bg-dark/90 transition-colors duration-200 mt-2"
               >
-                Obtenir un Devis
+                {t.nav.mobileCta}
               </Link>
             </div>
           </nav>

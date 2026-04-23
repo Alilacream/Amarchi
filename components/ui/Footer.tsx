@@ -1,8 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
+import { useLang } from "./LanguageProvider";
 
 export default function Footer() {
+  const { t } = useLang();
+
+  const navLinks = [
+    { href: "/", label: t.nav.home },
+    { href: "/about", label: t.nav.about },
+    { href: "/services", label: t.nav.services },
+    { href: "/projects", label: t.nav.projects },
+    { href: "/contact", label: t.nav.contact },
+  ];
+
   return (
     <footer className="bg-dark text-primary">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
@@ -18,25 +31,16 @@ export default function Footer() {
               />
             </div>
             <p className="text-primary/70 max-w-md leading-relaxed">
-              Nous concevons des espaces qui inspirent. Du concept à la
-              réalisation, AM Archi Vision offre une excellence architecturale
-              qui transforme la façon dont les gens vivent, travaillent et se
-              connectent.
+              {t.footer.description}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
-              Navigation
+              {t.footer.navLabel}
             </h3>
             <ul className="space-y-3">
-              {[
-                { href: "/", label: "Accueil" },
-                { href: "/about", label: "À Propos" },
-                { href: "/services", label: "Services" },
-                { href: "/projects", label: "Projets" },
-                { href: "/contact", label: "Contact" },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -51,7 +55,7 @@ export default function Footer() {
 
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
-              Contact
+              {t.footer.contactLabel}
             </h3>
             <ul className="space-y-3 text-primary/70">
               <li>Amarchi01@gmail.com</li>
@@ -72,8 +76,7 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-primary/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-primary/50 text-sm">
-            &copy; {new Date().getFullYear()} AM Archi Vision. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} AM Archi Vision. {t.footer.copyright}
           </p>
           <div className="flex gap-4">
             <a

@@ -4,8 +4,10 @@ import { useState } from "react";
 import { FaFacebookF, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { useLang } from "@/components/ui/LanguageProvider";
 
 export default function ContactPage() {
+  const { t } = useLang();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,7 +24,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Merci pour votre message. Nous vous répondrons dans les plus brefs délais.");
+    alert(t.contact.successMsg);
     setFormData({ name: "", email: "", phone: "", service: "", message: "" });
   };
 
@@ -32,15 +34,14 @@ export default function ContactPage() {
       <section className="relative py-24 lg:py-32 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Contactez-Nous
+            {t.contact.tag}
           </p>
           <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-dark leading-tight max-w-3xl">
-            Commençons une{" "}
-            <span className="text-accent">conversation</span>
+            {t.contact.h1a}{" "}
+            <span className="text-accent">{t.contact.h1accent}</span>
           </h1>
           <p className="mt-6 text-muted text-lg leading-relaxed max-w-2xl">
-            Que vous ayez un projet en tête ou que vous souhaitiez simplement explorer les possibilités, 
-            nous serions ravis de vous entendre. Contactez-nous et créons quelque chose de remarquable ensemble.
+            {t.contact.intro}
           </p>
         </div>
       </section>
@@ -49,12 +50,12 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
             <div className="lg:col-span-3">
-              <h2 className="text-2xl font-bold text-dark mb-8">Envoyez-nous un message</h2>
+              <h2 className="text-2xl font-bold text-dark mb-8">{t.contact.formTitle}</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-dark mb-2">
-                      Nom Complet
+                      {t.contact.nameLabel}
                     </label>
                     <input
                       type="text"
@@ -64,12 +65,12 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                      placeholder="Votre nom"
+                      placeholder={t.contact.namePlaceholder}
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-dark mb-2">
-                      Adresse Email
+                      {t.contact.emailLabel}
                     </label>
                     <input
                       type="email"
@@ -79,7 +80,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                      placeholder="votre@email.com"
+                      placeholder={t.contact.emailPlaceholder}
                     />
                   </div>
                 </div>
@@ -87,7 +88,7 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-dark mb-2">
-                      Numéro de Téléphone
+                      {t.contact.phoneLabel}
                     </label>
                     <input
                       type="tel"
@@ -96,12 +97,12 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                      placeholder="+213 555 123 456"
+                      placeholder={t.contact.phonePlaceholder}
                     />
                   </div>
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-dark mb-2">
-                      Service Souhaité
+                      {t.contact.serviceLabel}
                     </label>
                     <select
                       id="service"
@@ -110,18 +111,19 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
                     >
-                      <option value="">Sélectionnez un service</option>
-                      <option value="architecture">Design Architectural</option>
-                      <option value="interior">Design d'Intérieur</option>
-                      <option value="urban">Urbanisme</option>
-                      <option value="3d">Visualisation 3D</option>
+                      <option value="">{t.contact.servicePlaceholder}</option>
+                      {t.contact.serviceOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-dark mb-2">
-                    Détails du Projet
+                    {t.contact.messageLabel}
                   </label>
                   <textarea
                     id="message"
@@ -131,25 +133,25 @@ export default function ContactPage() {
                     required
                     rows={6}
                     className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-sm text-dark placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
-                    placeholder="Parlez-nous de votre projet, calendrier et exigences spécifiques..."
+                    placeholder={t.contact.messagePlaceholder}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="inline-flex items-center px-8 py-4 bg-accent text-white font-semibold rounded-sm hover:bg-accent/90 transition-all duration-200 hover:shadow-lg hover:shadow-accent/20"
+                  className="inline-flex items-center px-8 py-4 bg-dark text-white font-semibold rounded-sm hover:bg-dark/90 transition-all duration-200 hover:shadow-lg hover:shadow-dark/20"
                 >
-                  Envoyer le Message
+                  {t.contact.submitBtn}
                 </button>
               </form>
             </div>
 
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-dark mb-8">Contactez-Nous</h2>
+              <h2 className="text-2xl font-bold text-dark mb-8">{t.nav.cta}</h2>
               <div className="space-y-8">
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Bureau
+                    {t.contact.officeLabel}
                   </h3>
                   <a
                     href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
@@ -165,7 +167,7 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Email
+                    {t.contact.emailContactLabel}
                   </h3>
                   <a
                     href="mailto:Amarchi01@gmail.com"
@@ -177,7 +179,7 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Téléphone
+                    {t.contact.phoneContactLabel}
                   </h3>
                   <a
                     href="tel:+212660364728"
@@ -187,25 +189,9 @@ export default function ContactPage() {
                   </a>
                 </div>
 
-                <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">
-                    Bureau
-                  </h3>
-                  <a
-                    href="https://www.google.com/maps/place/@34.6887966,-1.9160654,21z"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted hover:text-accent transition-colors"
-                  >
-                    AM Archi Vision
-                    <br />
-                    Maroc, Oujda
-                  </a>
-                </div>
-
                 <div className="pt-8 border-t border-border">
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
-                    Suivez-Nous
+                    {t.contact.socialLabel}
                   </h3>
                   <div className="flex gap-4">
                     <a
@@ -247,9 +233,9 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-accent font-semibold tracking-widest uppercase text-sm mb-4">
-            Notre Emplacement
+            {t.contact.locationTag}
           </p>
-          <h2 className="text-3xl font-bold text-dark">Trouvez-nous</h2>
+          <h2 className="text-3xl font-bold text-dark">{t.contact.locationTitle}</h2>
         </div>
         <div className="relative h-[400px] lg:h-[500px] rounded-sm overflow-hidden border border-border">
           <Link

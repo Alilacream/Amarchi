@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import SplashScreen from "@/components/ui/SplashScreen";
 import ProgressBar from "@/components/ui/ProgressBar";
+import { LanguageProvider } from "@/components/ui/LanguageProvider";
 
 const SPLASH_KEY = "amarchi-splash-seen";
 
@@ -25,10 +26,10 @@ export default function ClientProviders({
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
       {showSplash && <SplashScreen onDone={handleSplashDone} />}
       <ProgressBar />
       {children}
-    </>
+    </LanguageProvider>
   );
 }
